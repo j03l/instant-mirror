@@ -1,3 +1,5 @@
+#!/bin/sh
+
 # define the default config file.
 CONF_FILE="/etc/nginx/conf.d/default.conf"
 
