@@ -20,6 +20,4 @@ RUN chmod 700 /start.sh
 
 EXPOSE 80
 
-CMD ["./substitute.sh"]
-CMD ["./wget.sh"]
 CMD ["./start.sh"]
