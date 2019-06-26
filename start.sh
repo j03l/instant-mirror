@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # define the default config file.
-CONF_FILE="/etc/nginx/conf.d/default.conf"
+CONF_FILE="/etc/nginx/sites-available/default"
 
 # Extract the domain
 WGET_DOMAIN="$(echo $WGET_URL | sed -e 's/[^/]*\/\/\([^@]*@\)\?\([^:/]*\).*/\2/')"
