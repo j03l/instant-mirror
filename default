@@ -1,8 +1,0 @@
-server {
-  listen 80;
-  server_name docker;
-
-  location / {
-      root /var/www/html/<wget_domain>;
-  }
-}
