@@ -1,18 +1,15 @@
-FROM ubuntu:18.04
+FROM alpine
+LABEL maintainer="Joel Davies joel@jdav.studio"
 
-# Update ubuntu
-RUN apt-get update
-RUN apt-get dist-upgrade -y
-
-# get needed packages
-RUN apt-get install -y nginx wget
-
-COPY default /etc/nginx/sites-available/default
-
-ADD start.sh /start.sh
-
-RUN chmod 700 /start.sh
+RUN apk add --no-cache --update \
+	nginx \
+	wget \
+  && rm -f \
+    /etc/nginx/conf.d/default.conf
 
 EXPOSE 80
 
-CMD ["./start.sh"]
+ADD ./run /usr/local/bin/run
+RUN chmod 700 /usr/local/bin/run
+
+ENTRYPOINT ["/usr/local/bin/run"]

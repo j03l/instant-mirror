@@ -1,7 +1,9 @@
-# Docker Container to mirror websites
+# Container to mirror the InstantOS mirror
 
-This container is designed to provide a mirror of a specific site.
+This container is designed to provide quick and 'instant' way to create your own InstantOS mirror.
+
+Simply run this with Docker / Podman and go to port 8080 in your web browser.
 
 ```bash
-docker run -d -p 80:80 -e WGET_URL=<url> maxpearl/wget-mirror
+podman run -d --name instant-mirror -p 8080:80 jo3l/instant-mirror
 ```
