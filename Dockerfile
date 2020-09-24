@@ -11,7 +11,7 @@ RUN apk add --no-cache --update \
     /etc/nginx/conf.d/default.conf
 
 EXPOSE 80
-
+VOLUME /mirror
 ADD ./run /usr/local/bin/run
 RUN chmod 700 /usr/local/bin/run
 
