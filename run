@@ -1,9 +1,10 @@
 #!/bin/sh
+MIRROR=${MIRROR:-/mirror}
 ALLOW=${ALLOW:-192.168.0.0/16 172.16.0.0/12}
 OWNER=${OWNER:-nobody}
 GROUP=${GROUP:-nogroup}
 
-chown "${OWNER}:${GROUP}" "/var/www/html"
+chown "${OWNER}:${GROUP}" "${MIRROR}"
 
 [ -f /etc/nginx/conf.d/default.conf ] || cat <<EOF > /etc/nginx/conf.d/default.conf
 server {
@@ -11,7 +12,7 @@ server {
   listen [::]:80 default_server;
   
   # Everything is a 404
-  root /var/www/html;
+  root ${MIRROR};
   
   $(for a in ${ALLOW}; do echo "allow ${a};"; done)
   deny all;
@@ -23,7 +24,7 @@ server {
 EOF
 
 #change directories for the mirror
-cd /var/www/html
+cd ${MIRROR}
 
 # do the mirror in the background
 wget -o wget-log -mkEpnp -nH "http://packages.instantos.io/" &
