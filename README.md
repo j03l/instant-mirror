@@ -1,6 +1,6 @@
-# Container to mirror the InstantOS mirror
+# Container to mirror the [InstantOS](https://instantos.io/) mirror
 
-This container is designed to provide quick and 'instant' way to create your own InstantOS mirror.
+This container is designed to provide quick and 'instant' way to create your own [InstantOS](https://instantos.io/) mirror.
 
 Simply run this with Docker / Podman and go to port 8080 in your web browser.
 
