@@ -15,4 +15,12 @@ VOLUME /mirror
 ADD ./run /usr/local/bin/run
 RUN chmod 700 /usr/local/bin/run
 
+#cron job for wget
+COPY wget-cron /etc/cron.d/wget-cron
+RUN chmod 0644 /etc/cron.d/wget-cron
+RUN crontab /etc/cron.d/wget-cron
+RUN touch /var/log/cron.log
+
+CMD cron && tail -f /var/log/cron.log
+
 ENTRYPOINT ["/usr/local/bin/run"]
