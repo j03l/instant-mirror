@@ -1,4 +1,4 @@
-FROM lsiobase/alpine
+FROM alpine
 LABEL maintainer="Joel Davies joel@jdav.studio"
 LABEL version="1.0"
 LABEL description="This container is designed to provide quick and 'instant' way to create your own InstantOS mirror. \
