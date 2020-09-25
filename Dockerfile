@@ -6,8 +6,8 @@ Simply run this with Docker / Podman and go to port 8080 in your web browser."
 
 RUN apk add --no-cache --update \
 	nginx \
+	wget \
   && rm -f \
-gith	wget \
     /etc/nginx/conf.d/default.conf
 
 EXPOSE 80
