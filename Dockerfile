@@ -15,6 +15,6 @@ VOLUME /mirror
 ADD ./run /usr/local/bin/run
 RUN chmod 700 /usr/local/bin/run
 
-CMD tail -f /var/log/cron.log
+CMD cron && tail -f /var/log/cron.log
 
 ENTRYPOINT ["/usr/local/bin/run"]
