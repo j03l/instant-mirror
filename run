@@ -29,9 +29,10 @@ cd ${MIRROR}
 # do the mirror in the background
 wget -o wget-log -mkEpnp -nH "http://packages.instantos.io/" &
 
+# setup crontab for every 15th minute
+echo "*/15 * * * * wget -o wget-log -mkEpnp -nH "http://packages.instantos.io/" &" | crontab -
+
 # start nginx
 nginx -g 'daemon off; pid /run/nginx.pid;' &
 
-trap "killall nginx" QUIT TERM
-
-wait
+CMD ["cron", "-f"]
